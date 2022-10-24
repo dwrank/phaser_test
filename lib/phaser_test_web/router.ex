@@ -17,7 +17,8 @@ defmodule PhaserTestWeb.Router do
   scope "/", PhaserTestWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    #get "/", PageController, :index
+    get "/", GameController, :index
   end
 
   # Other scopes may use custom stacks.

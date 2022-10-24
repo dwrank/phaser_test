@@ -1,0 +1,8 @@
+.game-title {
+  text-align: center;
+}
+
+.game-container canvas {
+  display: block;
+  margin: auto;
+}
