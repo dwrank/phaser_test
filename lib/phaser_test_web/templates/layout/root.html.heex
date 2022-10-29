@@ -13,17 +13,19 @@
   <body>
     <header>
       <section class="container">
-        <!--nav>
+        <nav>
           <ul>
             <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
               <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
             <% end %>
+            <li><a href="/demo">Demo &#8250</a></li>
+            <li><a href="/stars">Stars &#8250</a></li>
           </ul>
-        </nav-->
-        <!--a href="https://phoenixframework.org/" class="phx-logo">
+        </nav>
+        <a href="https://phoenixframework.org/" class="phx-logo">
           <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a-->
+        </a>
       </section>
     </header>
     <div class="game-title" id="game-title">
