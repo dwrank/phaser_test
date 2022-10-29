@@ -1,7 +1,10 @@
 defmodule PhaserTestWeb.HomeController do
   use PhaserTestWeb, :controller
 
+  alias PhaserTestWeb.Live.Home
+  alias Phoenix.LiveView
+
   def index(conn, _) do
-    render(conn, "index.html")
+    LiveView.Controller.live_render(conn, Home)
   end
 end
