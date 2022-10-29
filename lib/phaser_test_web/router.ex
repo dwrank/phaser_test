@@ -19,7 +19,7 @@ defmodule PhaserTestWeb.Router do
 
     #get "/", PageController, :index
     get "/", HomeController, :index
-    get "/game/", GameController, :index
+    get "/stars/", StarsController, :index
   end
 
   # Other scopes may use custom stacks.

@@ -1,4 +1,4 @@
-defmodule PhaserTestWeb.Live.Game do
+defmodule PhaserTestWeb.Live.Stars do
   @moduledoc """
   Main module, contains the entry point for the live view socket and
   all the game logic
@@ -9,7 +9,7 @@ defmodule PhaserTestWeb.Live.Game do
   alias Phoenix.LiveView.Socket
 
   def render(assigns) do
-    PhaserTestWeb.GameView.render("index.html", assigns)
+    PhaserTestWeb.StarsView.render("index.html", assigns)
   end
 
   @spec mount(map() | :not_mounted_at_router, map(), Socket.t()) :: {:ok, Socket.t()}
