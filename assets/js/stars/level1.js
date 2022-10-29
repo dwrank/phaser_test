@@ -5,19 +5,19 @@
     images: [
       {
         key: "sky",
-        url: "/images/sky.png"
+        url: "/images/stars/sky.png"
       },
       {
         key: "ground",
-        url: "/images/platform.png"
+        url: "/images/stars/platform.png"
       },
       {
         key: "star",
-        url: "/images/star.png"
+        url: "/images/stars/star.png"
       },
       {
         key: "bomb",
-        url: "/images/bomb.png"
+        url: "/images/stars/bomb.png"
       }
     ],
     background: {
@@ -50,7 +50,7 @@
     ],
     player: {
       key: "dude",
-      url: "/images/dude.png",
+      url: "/images/stars/dude.png",
       x: 100,
       y: 450,
       frameWidth: 32,
