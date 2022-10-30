@@ -3,7 +3,7 @@
 import "../css/app.css"
 
 import "../vendor/phaser.min"
-import "./stars/game"
+import "./stars/main"
 
 // If you want to use Phoenix channels, run `mix help phx.gen.channel`
 // to get started and then uncomment the line below.

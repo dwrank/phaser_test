@@ -84,9 +84,10 @@
     stars: {
       group: {
         key: "star",
-        repeat: 11,
+        repeat: 4,
         setXY: { x: 12, y: 0, stepX: 70 }
-      }
+      },
+      red: 5
     },
     bombs: {
       group: {
