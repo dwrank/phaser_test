@@ -12,6 +12,10 @@
         url: "/images/stars/platform.png"
       },
       {
+        key: "door",
+        url: "/images/stars/door.png"
+      },
+      {
         key: "star",
         url: "/images/stars/star.png"
       },
@@ -48,6 +52,12 @@
         y: 220
       }
     ],
+    door: { 
+      key: "door",
+      x: 750,
+      y: 172,
+      scale: 0.4
+    },
     player: {
       key: "dude",
       url: "/images/stars/dude.png",

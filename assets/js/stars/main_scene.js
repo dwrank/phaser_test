@@ -4,6 +4,7 @@ import level2 from './level2';
 export default class MainScene extends Phaser.Scene {
   physics;
   player;
+  door;
   stars;
   bombs;
   platforms;
@@ -13,8 +14,8 @@ export default class MainScene extends Phaser.Scene {
   startText;
   scoreText;
   gameOverText;
-  redStar;
-  redStarCollider;
+  //redStar;
+  //redStarCollider;
   level = level1;
 
   constructor() {
@@ -63,6 +64,12 @@ export default class MainScene extends Phaser.Scene {
       }
     });
 
+    // Door
+    this.door = this.physics.add.sprite(this.level.door.x, this.level.door.y, this.level.door.key);
+    this.door.setImmovable(true);
+    this.door.body.setAllowGravity(false);
+    this.door.setScale(this.level.door.scale);
+
     // Player
     this.player = this.physics.add.sprite(this.level.player.x, this.level.player.y, this.level.player.key, this.level.player.frameStart);
     this.player.setBodySize(this.player.width * this.level.player.bodySize.scaleWidth,
@@ -109,12 +116,12 @@ export default class MainScene extends Phaser.Scene {
 
     id = 1;
     this.stars.getChildren().forEach((child) => {
-      if (id == this.level.stars.red) {
+      /*if (id == this.level.stars.red) {
         child.setTint(0xff0000);
         this.redStar = child;
         // don't allow the player to move it
         this.redStar.setPushable(false);
-      }
+      }*/
       child.id = id++;
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
     });
@@ -128,8 +135,9 @@ export default class MainScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.platforms);
     this.physics.add.collider(this.stars, this.platforms);
     this.physics.add.collider(this.bombs, this.platforms);
-    this.redStarCollider = this.physics.add.collider(this.player, this.redStar);
+    //this.redStarCollider = this.physics.add.collider(this.player, this.redStar);
 
+    this.physics.add.overlap(this.player, this.door, this.enterDoor, null, this);
     this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
     this.physics.add.overlap(this.player, this.bombs, this.hitBomb, null, this);
   }
@@ -168,12 +176,25 @@ export default class MainScene extends Phaser.Scene {
     }
   }
 
+  enterDoor(player, door)
+  {
+    var active = this.stars.countActive(true);
+    if (active == 0) {
+      this.physics.pause();
+      player.anims.play('turn');
+      this.gameOver = true;
+      this.gameOverText.setText('YOU WIN!');
+      this.startText.setText('Press Space Bar to Continue');
+      this.level = level2;
+    } 
+  }
+
   collectStar(player, star)
   {
     var active = this.stars.countActive(true);
-    if (star.id == this.level.stars.red && active > 1) {
+    /*if (star.id == this.level.stars.red && active > 1) {
       return;
-    }
+    }*/
 
     star.disableBody(true, true);
 
@@ -184,7 +205,7 @@ export default class MainScene extends Phaser.Scene {
     bomb.enableBody(true, x, bomb.y, true, true);
     bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
     
-    if (active === 1) {
+    /*if (active === 1) {
       this.physics.pause();
       player.anims.play('turn');
       this.gameOver = true;
@@ -195,7 +216,7 @@ export default class MainScene extends Phaser.Scene {
     else if (active <= 2) {
       // allow the player to get it last
       this.physics.world.removeCollider(this.redStarCollider);
-    }
+    }*/
   }
 
   hitBomb(player, bomb)
