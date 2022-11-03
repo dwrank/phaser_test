@@ -19,6 +19,7 @@ defmodule PhaserTestWeb.Router do
 
     #get "/", PageController, :index
     get "/", HomeController, :index
+    get "/phaser_template/", PhaserTemplateController, :index
     get "/demo/", DemoController, :index
     get "/stars/", StarsController, :index
   end

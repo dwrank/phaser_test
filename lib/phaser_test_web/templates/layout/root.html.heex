@@ -19,6 +19,8 @@
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
               <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
             <% end %>
+            <li>Home</li>
+            <li><a href="/phaser_template">Phaser Template &#8250</a></li>
             <li><a href="/demo">Demo &#8250</a></li>
             <li><a href="/stars">Stars &#8250</a></li>
           </ul>
